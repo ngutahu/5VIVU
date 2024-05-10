@@ -1,0 +1,56 @@
+﻿
+<h2>Booking Successful!</h2>
+<div class="tm-sect">
+    <div class="tm-bg-white ie-container-width-fix-2">
+        <div class="container ie-h-align-center-fix">
+            <div class="row">
+                <div>
+                    <h3>Ticket Information:</h3>
+                    <p><strong>Full Name:</strong> @ViewBag.FullName</p>
+                    <p><strong>Birthday:</strong> @ViewBag.Birthday</p>
+                    <p><strong>CMND:</strong> @ViewBag.Cmnd</p>
+                    <p><strong>Email:</strong> @ViewBag.Email</p>
+                    <p><strong>Phone:</strong> @ViewBag.Phone</p>
+                </div>
+                <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                    <input type="hidden" id="flightId" name="flightId" value="@ViewData["flightId"]" />
+                    <div class="tickchon">
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p>Hãng máy bay: <br /> VietJet Airline</p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="aircraftName"></p>
+                        </div>
+                    </div>
+                    <div class="diemdi">
+                        <div class="form-group tm-form-element tm-form-element-100">
+                            <p id="departureAirport"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-100">
+                            <p id="arrivalAirport"></p>
+                        </div>
+                    </div>
+                    <div class="ngaydi">
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="departureTime"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="arrivalTime"></p>
+                        </div>
+                    </div>
+                    <div class="ngaydi">
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="price"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="totalEmptySeat"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button onclick="window.print()">Print Ticket</button>
+<script src="~/js/detaill.js"></script>

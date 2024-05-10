@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Chi tiết chuyến bay";
+}
+<input type="hidden" id="flightId" value="@ViewData["FlightId"]" />
+<div class="tm-sect">
+    <div class="tm-bg-white ie-container-width-fix-2">
+        <div class="container ie-h-align-center-fix">
+            <div class="row">
+                <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix" style="margin: 60px">
+
+                    <input type="hidden" id="flightId" name="flightId" value="@ViewData["flightId"]" />
+                    <div class="tickchon">
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <h3>Hãng máy bay: </h3><br /><p style="margin-top:3px;"> VietJet Airline</p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="aircraftName"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-100">
+                            <p id="departureAirport"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-100">
+                            <p id="arrivalAirport"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="departureTime"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="arrivalTime"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="price"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="totalEmptySeat"></p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row tm-search-form-row"
+                         style="display: flex; justify-content: center; align-items: center;">
+                        <div class=" tm-form-element tm-form-element-2 ">
+                            <button class="btn btn-primary tm-btn-search" onclick="redirectToBookingFlight('@ViewData["flightId"]')">
+                                Đặt vé
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .form-group {
+        width: max-content;
+        padding: 10px 15px;
+        border: 0.1px solid #efefef;
+    }
+
+    h3 {
+        font-size: 12px;
+        font-weight: 600;
+    }
+</style>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/f_details.js"></script>

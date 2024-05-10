@@ -1,0 +1,113 @@
+﻿﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div class="side-menu">
+        <div class="brand-name">
+        </div>
+        <ul>
+            <li><a class="nav-link" asp-controller="Admin" asp-action="ListBookings">Lịch sử giao dịch</a></li>
+            <li><a asp-controller="Admin" asp-action="MemberList"><img alt="">&nbsp;<span>Danh sách khách hàng</span></a> </li>
+            <li><a><img src="teacher2.png" alt="">&nbsp;<span>Doanh thu</span></a> </li>
+            <li><a asp-controller="AmountTicket" asp-action="AmountTicket"><img src="teacher2.png" alt="">&nbsp;<span>Thống Kê</span></a> </li>
+            <li><a><img src="school.png" alt="">&nbsp;<span>Giao dịch</span></a> </li>
+            <li>
+                <a asp-controller="Account" asp-action="Logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header"></div>
+        <div class="content">
+            <div class="content-3">
+                <div class="row">
+                    <div class="col-mid-12">
+                        <select id="yearSelect" onchange="updateChartData()">
+                            <option value="">Chọn năm</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                </div>
+                <canvas id="myChart" style="width:300px; height:300px"></canvas>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        var chart;
+        function updateChartData() {
+            var year2 = document.getElementById("yearSelect").value;
+            $.ajax({
+                type: "POST",
+                url: "/AmountTicket/AmountTicketByMonth",
+                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                dataType: "text",
+                data: {
+                    year: year2
+                },
+                success: function (_data) {
+                    var data = JSON.parse(_data);
+                    var barColor = ["red"];
+                    var barColor1 = ["yellow"];
+
+                    // Kiểm tra xem biểu đồ đã được tạo chưa
+                    if (!chart) {
+                        chart = new Chart("myChart", {
+                            type: "bar",
+                            data: {
+                                labels: data.month,
+                                datasets: [{
+                                    label: 'Vé đã bán ',
+                                    backgroundColor: barColor,
+                                    data: data.monthlyTicketCounts,
+                                    borderColor: barColor,
+                                },
+                                {
+                                    label: 'Tiền thu được',
+                                    backgroundColor: barColor1,
+                                    data: data.monthlyTransactionAmounts,
+                                }]
+                            }
+                        });
+                    } else {
+                        // Nếu biểu đồ đã tồn tại, chỉ cập nhật dữ liệu
+                        chart.data.labels = data.month;
+                        chart.data.datasets[0].data = data.monthlyTicketCounts;
+                        chart.data.datasets[1].data = data.monthlyTransactionAmounts;
+                        chart.update(); // Cập nhật biểu đồ
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log("Lỗi trong quá trình gửi yêu cầu AJAX:");
+                    console.log(xhr.responseText); // Log response từ server
+                    console.log(status); // Log status code
+                    console.log(error); // Log thông báo lỗi
+                    // Xử lý lỗi, ví dụ như hiển thị thông báo cho người dùng
+                }
+            });
+        }
+
+    </script>
+
+
+</body>
+</html>

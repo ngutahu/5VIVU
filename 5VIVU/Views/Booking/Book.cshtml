@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Trang đặt vé";
+}
+<link rel="stylesheet" type="text/css" href="/css/Booking.css" />
+@*chon cho ngoi tai day*@
+<div class="container">
+<div class="row">
+    <div class="col-md-5" style="margin-top:20px;height:200px;">
+        <h2>Seat Selection</h2>
+        <div id="seatContainer" class="d-flex flex-wrap"></div>
+    </div>
+    <div class="col-md-7" style="margin-top: 35px">
+        <h2>Please Enter Your Information</h2>
+        <form method="post" action="Book">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="flightId" name="flightId" value="@ViewData["flightId"]" />
+            <div class="form-group">
+                    <label for="fullName" class="control-label">Full Name<span class="required-field">*</span></label>
+                <input type="text" id="fullName" name="fullName" class="form-control" required minlength="7" maxlength="50" placeholder="Full Name"/>
+                <div class="invalid-feedback">Please enter a valid full name (7 to 50 characters).</div>
+            </div>
+            <div class="form-group">
+                    <label for="iNumber" class="control-label">Identification Number<span class="required-field">*</span></label>
+                    <input type="number" id="iNumber" name="iNumber" class="form-control" required minlength="9" maxlength="15" placeholder="Identification Number" />
+                <div class="invalid-feedback">Please enter a valid identification number (9 to 15 digits).</div>
+            </div>
+            <div class="form-group">
+                    <label for="email" class="control-label">Email<span class="required-field">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="Email" />
+            </div>
+            <div class="form-group">
+                    <label for="selectedSeat" class="control-label">Selected Seat Number<span class="required-field">*</span></label>
+                <input type="text" id="selectedSeat" name="selectedSeat" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label for="price" class="control-label">Price</label>
+                <input type="text" id="price" name="price" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Next Step Payment" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<style>
+    .required-field{
+        color: red;
+    }
+</style>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/booking.js"></script>

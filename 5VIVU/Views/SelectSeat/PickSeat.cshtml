@@ -1,0 +1,133 @@
+﻿@model IEnumerable<_5VIVU.Data.Ticket>
+
+@{
+    ViewData["Title"] = "PickSeat";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+
+    <link rel="stylesheet" href="~/css/selectseat_global.css" />
+    <link rel="stylesheet" href="~/css/selectseat_index.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Nunito Sans:wght@400;600;700;800&display=swap" />
+</head>
+<body>
+    <div style="display: flex">
+        <input type="text" id="flightId" name="flightId" value="@ViewData["flightId"]" hidden>
+
+        <div class="economy">
+
+            @for (var i = 1; i <= 9; i++)
+            {
+                <div id="seat@(i)" class="seat-row-economy">
+                    @for (var j = 1; j <= 3; j++)
+                    {
+                        var seatNumber = (i - 1) * 6 + j;
+                        <img id="seat@(seatNumber)" class="seat-icon@(20 + j)" />
+                    }
+
+                    <div class="row-number@(i + 4)">
+                        <div class="div6">@i</div>
+                    </div>
+
+                    @for (var k = 4; k <= 6; k++)
+                    {
+                        var seatNumber = (i - 1) * 6 + k;
+                        <img id="seat@(seatNumber)" class="seat-icon@(20 + k)" />
+                    }
+                </div>
+                @if (i % 3 == 0 || i == 9)
+                {
+                    <div class="big-empty-row"></div>
+                }
+            }
+        </div>
+
+        <div id="seatInfoContainer" class="seatInfo">
+        </div>
+        <div class="navigation-footer">
+            <div class="seat-selection-divider">
+                <div class="divider2"></div>
+            </div>
+            <div class="content1">
+                <div class="user-selections">
+                    <div class="passenger-data1">
+                        <div class="label2">Price</div>
+                        <div class="name" id="price">
+                            --
+                        </div>
+                    </div>
+                    <div class="passenger-data1">
+                        <div class="label2">Seat number</div>
+                        <div class="name" id="idseat">--</div>
+                    </div>
+                    <div class="passenger-data1">
+                        <div class="label2">Seat number</div>
+                        <div class="name" id="seatStatus">--</div>
+                    </div>
+
+                </div>
+                <div class="button-row">
+                    <button class="btn btn-primary tm-btn-search" onclick="redirectToBookingFlight('@ViewData["flightId"]')">
+                        Đặt vé
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Lấy dữ liệu từ API khi trang được load
+        var flightId = $("#flightId").val();
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7019/api/Tickets/flightId?flightId=" + flightId,
+            dataType: "json",
+            success: function (seats) {
+                displaySeatsInfo(seats); // Hiển thị thông tin ghế khi dữ liệu được load thành công
+            },
+            error: function (req, status, error) {
+                console.log(status);
+            }
+        });
+    });
+
+    // Hàm để hiển thị thông tin ghế
+    function displaySeatsInfo(seats) {
+        var seatInfoContainer = $("#seatInfoContainer");
+
+        // Lặp qua mỗi ghế và hiển thị thông tin của nó
+        seats.forEach(function (seat) {
+            var seatInfo = "<p>Seat Number: " + seat.seatNumber + "</p>";
+            seatInfo += "<p>Price: " + seat.price + "</p>";
+            seatInfo += "<p>Is Booked: " + (seat.isbooked ? "Yes" : "No") + "</p>";
+            seatInfo += "<p>Aircraft Name: " + seat.aircraftName + "</p>";
+            seatInfo += "</div>";
+            seatInfoContainer.append(seatInfo);
+        });
+    }
+    function createSeatSelectionButtons(seats) {
+        var seatSelectionContainer = $("#seatSelectionContainer");
+
+        // Lặp qua mỗi ghế và tạo nút bấm tương ứng
+        for (var i = 0; i < seats.length; i++) {
+            var seat = seats[i];
+            var seatButton = "<button onclick='selectSeat(" + seat.seatNumber + ")'>Select Seat " + seat.seatNumber + "</button>";
+            seatSelectionContainer.append(seatButton);
+        }
+    }
+    function selectSeat(seatNumber) {
+        // Thực hiện xử lý khi chọn ghế, ví dụ: gửi yêu cầu đặt ghế đến server
+        console.log("Selected seat: " + seatNumber);
+        // Thêm logic xử lý khi chọn ghế ở đây
+    }
+
+</script>

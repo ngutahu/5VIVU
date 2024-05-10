@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Reset Password";
+}
+
+<h1>Reset Password</h1>
+
+<form method="post" action="/forgot-password">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Send OTP</button>
+</form>
+
+<!-- Display any error messages here -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}

@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Chi tiết chuyến bay";
+}
+<input type="hidden" id="flightId" value="@ViewData["flightId"]" /> @if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+
+}
+
+<div class="tm-sect">
+    <div class="tm-bg-white ie-container-width-fix-2">
+        <div class="container ie-h-align-center-fix">
+            <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                <h3>Booking Page:</h3>
+                    <form action="BookSeat" method="post">
+                    <input type="hidden" id="flightId" name="flightId" value="@ViewData["flightId"]" />
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Full Name:</label>
+                            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Full Name" required />
+                        </div>
+
+                        <div class="col mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Birthday:</label>
+                            <input class="form-control" type="date" id="birthday" name="birthday" max="<?php echo date('Y-m-d'); ?>" required />
+                        </div>
+                        <div class="col mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Identification Number:</label>
+                            <input class="form-control" type="text" id="cmnd" name="cmnd" pattern="([0-9]{12})\b" required />
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email:</label>
+                            <input class="form-control" type="email" id="email" name="email" required/>
+                        </div>
+
+                        <div class="col mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Phone:</label>
+                            <input class="form-control" type="tel" id="phone" name="phone" pattern="0[3|5|7|8|9][0-9]{8}" required />
+                        </div>
+
+                        <div class="col mb-3">
+                            <label for="price" class="form-label">Price:</label>
+                            <input type="text" id="price" name="price" class="form-control" readonly />
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Payment</button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //validateBirthday
+    var currentDate = new Date();
+    var year = currentDate.getFullYear();
+    var month = currentDate.getMonth() + 1; 
+    var day = currentDate.getDate();
+    if (month < 10) month = '0' + month;
+    if (day < 10) day = '0' + day;
+    var today = year + '-' + month + '-' + day;
+    document.getElementById('birthday').setAttribute('max', today);
+</script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/booking.js"></script>

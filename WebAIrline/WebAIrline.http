@@ -1,0 +1,6 @@
+@WebAIrline_HostAddress = http://localhost:5022
+
+GET {{WebAIrline_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

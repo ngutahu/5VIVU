@@ -1,0 +1,237 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+<link rel="stylesheet" type="~/text/css" href="~/css/index.css" />
+<!--carosel-->
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/img/carousel4.jpeg" width="100%" height="400">
+        </div>
+        <div class="carousel-item">
+            <img src="~/img/carousel2.jpg" width="100%" height="400">
+        </div>
+        <div class="carousel-item"> 
+            <img src="~/img/carousel3.jpeg" width="100%" height="400">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a> 
+</div>
+<div class="tm-section tm-section-pad tm-bg-gray" id="tm-section-4">
+    <div class="tm-bg-white ie-container-width-fix-2">
+        <div class="container ie-h-align-center-fix">
+            <div class="row">
+                <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                    <form id="flightSearchForm" class="tm-search-form tm-section-pad-2">
+                        <div class="form-group" style="height:100px">
+                            <label for="departureAirport">Sân bay đi:</label>
+                            <select class="form-control" id="departureAirport" name="departureAirport" style="padding-top: 8px;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="arrivalAirport">Sân bay đến:</label>
+                            <select class="form-control" id="arrivalAirport" name="arrivalAirport" style="padding-top: 8px;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="departureTime">Thời gian khởi hành:</label>
+                            <input type="datetime-local" class="form-control" id="departureTime" name="departureTime">
+                        </div>
+                        <button type="button" class="btn btn-primary search-btn" onclick="searchFlights()">Tìm kiếm</button>
+                    </form>
+                    <div class="form-group table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Mã máy bay</th>
+                                    <th scope="col">Tên sân bay cất cánh</th>
+                                    <th scope="col">Tên sân bay hạ cánh</th>
+                                    <th scope="col">Thời gian cất cánh</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="flightTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="tm-bg-video">
+    <div class="overlay">
+        <i class="fa fa-5x fa-play-circle tm-btn-play"></i>
+        <i class="fa fa-5x fa-pause-circle tm-btn-pause"></i>
+    </div>
+    <video controls="" loop="" class="tmVideo">
+        <source src="videos/video.mp4" type="video/mp4">
+        <source src="videos/video.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+    </video>
+    <div class="tm-section tm-section-pad tm-bg-img" id="tm-section-5">
+        <div class="container ie-h-align-center-fix">
+            <div class="row tm-flex-align-center">
+                <div class="col-xs-12 col-md-12 col-lg-3 col-xl-3 tm-media-title-container">
+                    <!-- <h2 class="text-uppercase tm-section-title-2">5VIVU</h2> -->
+                    <h3 class="tm-color-primary tm-font-semibold tm-section-subtitle-2">
+                        Kiến Thức <br>
+                        Kinh
+                        Nghiệm <br> Trải Nghiệm <img class="tm-section-subtitle-logo" src="img/Airlines.png"
+                                                     alt="logo">
+                    </h3>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-9 col-xl-9 mt-0 mt-sm-3">
+                    <div class="ml-auto tm-bg-white-shadow tm-pad tm-media-container">
+                        <article class="media tm-margin-b-20 tm-media-1">
+                            <img src="img/vnairlines.png" alt="Image">
+                            <div class="media-body tm-media-body-1 tm-media-body-v-center">
+                                <h3 class="tm-font-semibold tm-article-title-3">
+                                    Vietnam
+                                    Airlines
+                                </h3>
+                                <p>
+                                    Cùng với sự đầu tư lớn về đội bay và nâng cấp chất lượng dịch vụ, năm
+                                    2015,
+                                    Vietnam Airlines
+                                    đã cho ra mắt Hệ thống nhận diện thương hiệu mới trên cơ sở kế thừa
+                                    và phát
+                                    huy các giá trị nhận diện sẵn có...
+                                </p>
+                                <a href="https://www.vietnamairlines.com/vn/vi/home"
+                                   class="text-uppercase tm-color-primary tm-font-semibold">
+                                    Continue
+                                    reading...
+                                </a>
+                            </div>
+                        </article>
+                        <article class="media tm-margin-b-20 tm-media-1">
+                            <img src="img/bamboo.png" alt="Image">
+                            <div class="media-body tm-media-body-1 tm-media-body-v-center">
+                                <h3 class="tm-font-semibold tm-article-title-3">Bamboo Airways</h3>
+                                <p>
+                                    Ứng dụng biểu tượng của cây tre và lá tre trong màu sắc chủ đạo bao
+                                    gồm: Xanh
+                                    lá tượng trưng cho cây tre – biểu tượng cho sức sống và văn hóa
+                                    Việt; xanh
+                                    dương tượng trưng cho bầu trời và mặt biển, thể hiện khát khao cất
+                                    cánh,
+                                    vươn xa...
+                                </p>
+                                <a href="https://www.bambooairways.com/vn/vi"
+                                   class="text-uppercase tm-color-primary tm-font-semibold">
+                                    Continue
+                                    reading...
+                                </a>
+                            </div>
+                        </article>
+                        <article class="media tm-margin-b-20 tm-media-1">
+                            <img src="img/vietjet.png" alt="Image">
+                            <div class="media-body tm-media-body-1 tm-media-body-v-center">
+                                <h3 class="tm-font-semibold tm-article-title-3">Vietjet Air</h3>
+                                <p>
+                                    AirlineRatings đánh giá hơn 385 hãng bay toàn cầu, dựa trên hồ sơ an
+                                    toàn bay
+                                    trong các năm gần đây, độ tuổi của đội tàu đang khai thác, dữ liệu
+                                    thẩm định
+                                    của các cơ quan hàng không trong nước, tổ chức Hàng không dân dụng
+                                    quốc tế
+                                    ICAO và các tổ chức hàng không quốc tế khác
+                                </p>
+                                <a href="https://www.vietjetair.com/vi"
+                                   class="text-uppercase tm-color-primary tm-font-semibold">
+                                    Continue
+                                    reading...
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">
+    <div class="container ie-h-align-center-fix">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7">
+                <div id="google-map"></div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0">
+                <div class="tm-bg-white tm-p-4">
+                    <form action="index.html" method="post" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="contact_name" name="contact_name" class="form-control"
+                                   placeholder="Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact_email" name="contact_email" class="form-control"
+                                   placeholder="Email" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="contact_subject" name="contact_subject" class="form-control"
+                                   placeholder="Subject" required />
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contact_message" name="contact_message" class="form-control" rows="9"
+                                      placeholder="Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary tm-btn-primary">
+                            Send Message
+                            Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/flights.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<style>
+    /* Custom CSS for Carousel */
+    .carousel-inner img {
+        width: 100%;
+        height: 380px; /* Adjust the height as needed */
+        object-fit: cover; /* Maintain aspect ratio while covering the entire space */
+    }
+
+    /* Adjust carousel control icon size */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Customize carousel indicators */
+    .carousel-indicators li {
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        border: 1px solid #fff; /* White border */
+        border-radius: 50%; /* Circular shape */
+    }
+
+    .carousel-indicators .active {
+        background-color: #fff; /* White background for active indicator */
+    }
+</style>

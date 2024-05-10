@@ -1,0 +1,162 @@
+﻿@{
+    Layout = null;
+
+    ViewData["Title"] = "Login";
+    
+}
+@model UserLogin
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Login and Registration Form in HTML & CSS | CodingLab </title>
+    <link rel="stylesheet" href="/css/login.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/js/checkInput.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="/img/z5058291338674_38dc968be287eaf075b286a1b6cb6413.jpg" alt="">
+            </div>
+            <div class="back">
+                <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    @if (ViewBag.SuccessMessage1 != null)
+                    {
+                        <br>
+                        <div class="alert alert-success">@ViewBag.SuccessMessage1</div>
+                    }
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                    {
+                       
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                @Html.TextBoxFor(u => u.Email, new { @class = "", placeholder = "Enter your email", Type = "text", required = "required", autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(u => u.Email, "", new { @class = "text-danger" })
+                             @*    <input type="text" name="Email" placeholder="Enter your email" required> *@
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="Password" placeholder="Enter your password" required>
+                            </div>
+                            @* <div class="text"><a href="forget_password.html">Forgot password?</a></div> *@
+                            @Html.ActionLink("Quên mật khẩu?","ForgotPassword","ForgotPassword")
+                            @Html.ValidationSummary(false, "", "eror")
+                            <div class="button input-box">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
+                        </div>
+                    }
+                </div>
+                <div class="signup-form" id="signup-form">
+                    <div class="title">Signup</div>
+                    <!-- Hiển thị thông báo lỗi -->
+                    <br />
+                    <div id="error_message1" class="text-danger"></div>
+                    <div id="error_message2" class="text-danger"></div>
+                    <div id="error_message3" class="text-danger"></div>
+                    <div id="error_message4" class="text-danger"></div>
+                    <div id="error_message5" class="text-danger"></div>
+                    <div id="error_count" style="color:white;"></div>
+                    <form action="/SignUp/SignUp" method="post">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" name="name" id="name" placeholder="Enter your name" onkeyup="checkInput();" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" name="email" id="email" placeholder="Enter your email" onkeyup="checkInput();" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-birthday-cake"></i>
+                                <input type="date" id="birthday" name="birthday" placeholder="Ngày tháng năm sinh" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="pass" id="pass" placeholder="Enter your password" required onkeyup="checkInput();" />
+                                <span class="toggle-password" onclick="togglePasswordVisibility('pass')">
+                                    <i class="fas fa-eye" id="pass-toggle"></i>
+                                </span>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="confirmpass" id="confirmpass" placeholder="Enter your password again" onkeyup="checkInput();" required />
+                                <span class="toggle-password" onclick="togglePasswordVisibility('confirmpass')">
+                                    <i class="fas fa-eye" id="confirmpass-toggle"></i>
+                                </span>
+                            </div>
+
+                            <!-- Button Submit -->
+                            <div class="button input-box" id="btnSubmit">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/checkInput.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#btnSubmit").on('click', function (e) {
+                if ($("#error_count").text().length > 0) {
+                    e.preventDefault();
+
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnSubmit").on('click', function (e) {
+                for (var i = 1; i <= 5; i++) {
+                    if ($("#error_message" + i).text().length > 0) {
+                        e.preventDefault();
+                        break; // No need to continue checking once we find an error
+                    }
+                }
+            });
+        });
+    </script>
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <script>
+            $(document).ready(function () {
+                alert('Đăng ký thành công! Vui lòng đăng nhập');
+            });
+        </script>
+    }
+    @if (ViewBag.Exists == false)
+    {
+        <script>
+            $(document).ready(function () {
+                alert('Email đã tồn tại! Vui lòng sử dụng email khác');
+            });
+        </script>
+    }
+</body>
+
+</html>

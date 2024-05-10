@@ -1,0 +1,82 @@
+﻿@model _5VIVU.Data.Ticket
+
+<div class="tm-sect">
+    <div class="tm-bg-white ie-container-width-fix-2">
+        <div class="container ie-h-align-center-fix">
+            <div class="alert alert-success" role="alert">
+                Booking Successful!
+            </div>
+            <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                <h3>Ticket Information:</h3>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Full Name:</label>
+                        <input type="text" class="form-control" value="@ViewBag.FullName" readonly />
+                    </div>
+                    <div class="col mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Birthday:</label>
+                        <input type="text" class="form-control" value="@ViewBag.Birthday" readonly />
+                    </div>
+                    <div class="col mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">CMND:</label>
+                        <input type="text" class="form-control" value="@ViewBag.Cmnd" readonly />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email:</label>
+                        <input type="text" class="form-control" value="@ViewBag.Email" readonly />
+                    </div>
+                    <div class="col mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone:</label>
+                        <input type="text" class="form-control" value="@ViewBag.Phone" readonly />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+                <h3>Hãng máy bay: <img src="https://daily.tanphivan.vn/wp-content/uploads/2018/03/Logo-Vietjet.png"/></h3>
+                <input type="hidden" id="flightId" name="flightId" value="@ViewData["flightId"]" />
+                <div class="row">
+                    <div class="tickchon">
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="aircraftName"></p>
+                        </div>
+                    </div>
+
+                    <div class="diemdi">
+                        <div class="form-group tm-form-element tm-form-element-100">
+                            <p id="departureAirport"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-100">
+                            <p id="arrivalAirport"></p>
+                        </div>
+                    </div>
+
+                    <div class="ngaydi">
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="departureTime"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="arrivalTime"></p>
+                        </div>
+                    </div>
+
+                    <div class="ngaydi">
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="price"></p>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-50">
+                            <p id="totalEmptySeat"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="window.print()">Print Ticket</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/detaill.js"></script>

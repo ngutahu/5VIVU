@@ -1,0 +1,21 @@
+﻿
+.seat {
+    width: calc(20% - 10px);
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    background-color: lightgray;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.booked {
+    background-color: red;
+}
+
+.row-cols-5 > * {
+    flex: 0 0 20%;
+    max-width: 20%;
+}

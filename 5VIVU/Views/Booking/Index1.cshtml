@@ -1,0 +1,553 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="tripma">
+        <div class="tripma-inner">
+            <div class="passenger-information-parent" style="padding-top:  20px">
+                <h3 class="passenger-information" style="color: #87cefa">Passenger information</h3>
+                <div class="enter-the-required">
+                    Enter the required information for each traveler and be sure that it
+                    exactly matches the government-issued ID presented at the airport.
+                </div>
+            </div>
+        </div>
+        <section class="tripma-child">
+            <div class="passenger-1-adult-parent">
+                <div class="passenger-1-adult">Passenger 1 (Adult)</div>
+                <div class="luggage-parent">
+
+
+                    <div class="frame-parent">
+                        <div class="frame-wrapper">
+                            <div class="frame-group" id="bookingForm" method="post" action="/Booking/BookTicket">
+                                <div class="frame-container">
+                                    <div class="frame-div">
+                                        <div class="columnpartner-parent">
+                                            <div class="columnpartner">
+                                                <div class="text-input">
+                                                    <div class="base-text-input">
+                                                        <img class="money-price-cost"
+                                                             alt=""
+                                                             src="./public/32--money-price-cost.svg" />
+
+                                                        <input class="label5" id="fullName"
+                                                               placeholder="Full Name"
+                                                               type="text" />
+
+                                                        <img class="eye-show-visible"
+                                                             alt=""
+                                                             src="./public/32--eye-show-visible@2x.png" />
+                                                    </div>
+                                                    <div class="helper-text">
+                                                        <div class="helpertext">Helper text</div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-input-parent">
+                                                    <div class="text-input-wrapper">
+                                                        <div class="text-input5">
+                                                            <div class="base-text-input5">
+                                                                <img class="money-price-cost5"
+                                                                     alt=""
+                                                                     src="./public/32--money-price-cost.svg" />
+
+                                                                <input class="label10" id="birthday"
+                                                                       placeholder="Date of birth*"
+                                                                       type="text" />
+
+                                                                <img class="eye-show-visible5"
+                                                                     alt=""
+                                                                     src="./public/32--eye-show-visible@2x.png" />
+                                                            </div>
+                                                            <div class="helper-text5">
+                                                                <div class="helpertext5">MM/DD/YY</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-input-wrapper">
+                                                        <div class="text-input2">
+                                                            <div class="base-text-input5">
+                                                                <img class="money-price-cost5"
+                                                                     alt=""
+                                                                     src="./public/32--money-price-cost.svg" />
+
+                                                                <input class="label10" id="cmnd"
+                                                                       placeholder="CMND/CCCD*"
+                                                                       type="text" />
+
+                                                                <img class="eye-show-visible5"
+                                                                     alt=""
+                                                                     src="./public/32--eye-show-visible@2x.png" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="duration-display">
+                                        <div class="text-input6">
+                                            <div class="base-text-input6">
+                                                <img class="money-price-cost6"
+                                                     alt=""
+                                                     src="./public/32--money-price-cost.svg" />
+
+                                                <input class="label11" id="email"
+                                                       placeholder="Email address*"
+                                                       type="text" />
+
+                                                <img class="eye-show-visible6"
+                                                     alt=""
+                                                     src="./public/32--eye-show-visible@2x.png" />
+                                            </div>
+                                            <div class="helper-text6">
+                                                <div class="helpertext6">Helper text</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-input7">
+                                            <div class="base-text-input7">
+                                                <img class="money-price-cost7"
+                                                     alt=""
+                                                     src="./public/32--money-price-cost.svg" />
+
+                                                <input class="label12" id="phone"
+                                                       placeholder="Phone number*"
+                                                       type="text" />
+
+                                                <img class="eye-show-visible7"
+                                                     alt=""
+                                                     src="./public/32--eye-show-visible@2x.png" />
+                                            </div>
+                                            <div class="helper-text7">
+                                                <div class="helpertext7">Helper text</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="maximum">
+                        <div class="flight-cart">
+                            <div class="data-row-flights-in-cart">
+                                <div class="data-row-chosen-flight-detai">
+                                    <img class="hawaiian-airlines-icon"
+                                         loading="lazy"
+                                         alt=""
+                                         src="./img/vietjet.png" />
+
+                                    <div class="airline-details">
+                                        <div class="airline-name">*AircraftName</div>
+                                        <div class="flight-number">*FlightID</div>
+                                        <div class="airline-name">*DepartureAirportID</div>
+                                    </div>
+                                    <div class="flight-details">
+                                        <div class="duration">*Render ra thoi gian </div>
+                                        <div class="departure-and-arrival"> DepartureTime - ArrivalTime</div>
+                                        <div class="duration">ArrivalAirportID</div>
+                                    </div>
+                                </div>
+                                <div class="data-row-divider">
+                                    <div class="divider"></div>
+                                </div>
+                                <div class="data-row-chosen-flight-detai1">
+                                    <img class="hawaiian-airlines-icon1"
+                                         alt=""
+                                         src="./img/vietjet.png" />
+
+                                    <div class="airline-details1">
+                                        <div class="airline-name1">Hawaiian Airlines</div>
+                                        <div class="flight-number1">FIG4312</div>
+                                    </div>
+                                    <div class="flight-details1">
+                                        <div class="duration1">16h 45m (+1d)</div>
+                                        <div class="departure-and-arrival1">
+                                            7:00 AM - 4:15 PM
+                                        </div>
+                                        <div class="layover-info1">2h 45m in HNL</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data-row-cart-fees-summary">
+                                <div class="cart-labels">
+                                    <div class="seat-upgrade">Seat upgrade</div>
+                                    <div class="oversized-luggage-fee">
+                                        Oversized luggage fee
+                                    </div>
+                                    <div class="pet-fee">Pet fee</div>
+                                </div>
+                                <div class="cart-price-details">
+                                    <div class="div">$199</div>
+                                    <div class="div1">$79</div>
+                                    <div class="div2">$99</div>
+                                </div>
+                            </div>
+                            <div class="data-row-cart-price-summary">
+                                <div class="cart-labels1">
+                                    <div class="subtotal">Subtotal</div>
+                                    <div class="taxes-and-fees">Taxes and Fees</div>
+                                    <div class="total">Total</div>
+                                </div>
+                                <div class="cart-price-details1">
+                                    <div class="div3">$503</div>
+                                    <div class="div4">$121</div>
+                                    <div class="div5">$624</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button1">
+                            <div class="label19">Select seats</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    <section class="case">
+        <div class="default">
+            <div class="bag-information"></div>
+            <div class="for-each-loop">
+                <div class="break">
+                    <div class="data-rows">
+                        <div class="button2">
+                            <div class="label20" style="color: #87cefa">Save and close</div>
+                        </div>
+                        <div class="button3">
+                            <div class="label21">Select seats</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+
+    <link rel="stylesheet" href="~/css/selectseat_global.css" />
+    <link rel="stylesheet" href="~/css/selectseat_index.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Nunito Sans:wght@400;600;700;800&display=swap" />
+</head>
+<body>
+    <div class="tripma">
+        <div class="logic-processor">
+            <main class="plane-seat-selection">
+                <div class="input-filter">
+                    <div class="decision-maker">
+                        <img class="border-icon" alt="" src="./public/border.svg" />
+
+                        <img class="border-icon1" alt="" src="./public/border.svg" />
+                    </div>
+                </div>
+                <div class="data-sorter">
+                    <div class="database-connection">
+                        <img class="database-connection-child"
+                             loading="lazy"
+                             alt=""
+                             src="./public/rectangle-11.svg" />
+                    </div>
+                    <div class="variable-store">
+                        <div class="data-transformation">
+                            <img class="data-transformation-item"
+                                 alt="" />
+                            
+                            <div class="economy">
+                                @for (var i = 1; i <= 9; i++)
+                                {
+                                    <div id="seat@(i)" class="seat-row-economy">
+                                        @for (var j = 1; j <= 3; j++)
+                                        {
+                                            var seatNumber = (i - 1) * 6 + j;
+                                            <img onclick="getTicketInfo(@(seatNumber))" class="seat-icon@(20 + j)" alt="" src="~/img/pick.png" />
+                                        }
+
+                                        <div class="row-number@(i + 4)">
+                                            <div class="div6">@i</div>
+                                        </div>
+
+                                        @for (var k = 4; k <= 6; k++)
+                                        {
+                                            var seatNumber = (i - 1) * 6 + k;
+                                            <img onclick="getTicketInfo(@(seatNumber))" class="seat-icon@(20 + k)" alt="" src="~/img/pick.png" />
+                                        }
+                                    </div>
+                                    @if (i % 3 == 0 || i == 9)
+                                    {
+                                        <div class="big-empty-row"></div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="database-connection1">
+                        <img class="database-connection-item"
+                             loading="lazy"
+                             alt=""
+                             src="./public/rectangle-10.svg" />
+                    </div>
+                </div>
+            </main>
+            <div class="seat-selector">
+                <div class="border"></div>
+                <div class="content">
+                    <div class="progress-step-header-default">
+                        <div class="flight-information">
+                            <div class="flight-info-information-da">
+                                <h2 class="code">SFO</h2>
+                                <div class="location">California, US</div>
+                            </div>
+                            <div class="data-matrix">
+                                <img class="arrowright-icon"
+                                     loading="lazy"
+                                     alt=""
+                                     src="./img/arrowRight.png" />
+                            </div>
+                            <div class="flight-info-information-da1">
+                                <h2 class="code1">NRT</h2>
+                                <div class="location1">Tokyo, Japan</div>
+                            </div>
+                            <img class="arrowright-icon1"
+                                 alt=""
+                                 src="./img/arrowRight.png" />
+
+                            <div class="flight-info-information-da2">
+                                <div class="code2">Code</div>
+                                <div class="location2">City, Country</div>
+                            </div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="flight-info-divider-dark">
+                                <div class="divider"></div>
+                            </div>
+                            <div class="flight-info">
+                                <div class="time-data">
+                                    <span>Feb 25</span>
+                                    <span class="span"> | </span>
+                                    <span>7:00AM</span>
+                                </div>
+                                <div class="direction">Departing</div>
+                            </div>
+                            <div class="flight-info-divider-dark1">
+                                <div class="divider1"></div>
+                            </div>
+                            <div class="flight-info1">
+                                <div class="flight-info-inactive">
+                                    <div class="time-data1">
+                                        <span>Mar 21</span>
+                                        <span class="span1"> | </span>
+                                        <span>12:15PM</span>
+                                    </div>
+                                    <div class="direction1">Arriving</div>
+                                </div>
+                                <div class="chevron-wrapper">
+                                    <img class="chevron-icon"
+                                         alt=""
+                                         src="./public/chevron.svg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-lists">
+                        <div class="feature-list-economy">
+                            <img class="economy-seats-icon" style="width: 100%"
+                                 loading="lazy"
+                                 alt=""
+                                 src="./img/Business Seats.png" />
+
+                            <div class="feature-list-wrapper">
+                                <div class="feature-list">
+                                    <div class="header-and-badge">
+                                        <div class="header">Economy</div>
+                                        <div class="badge-selected">
+                                            <b class="label">Selected</b>
+                                        </div>
+                                    </div>
+                                    <div class="description">
+                                        Rest and recharge during your flight with extended leg
+                                        room, personalized service, and a multi-course meal
+                                        service
+                                    </div>
+                                    <div class="divider-thick"></div>
+                                    <div class="feature-list-bullet">
+                                        <input class="point-heavy"
+                                               checked="{true}"
+                                               type="radio"
+                                               name="radioGroup-1" />
+
+                                        <div class="output-link">
+                                            <div class="bullets-of-key">
+                                                Built-in entertainment system
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feature-list-bullet1">
+                                        <input class="point-heavy1"
+                                               checked="{true}"
+                                               type="radio"
+                                               name="radioGroup-1" />
+
+                                        <div class="bullets-of-key-value-for-user-wrapper">
+                                            <div class="bullets-of-key1">
+                                                Complimentary snacks and drinks
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feature-list-bullet2">
+                                        <input class="point-heavy2"
+                                               checked="{true}"
+                                               type="radio"
+                                               name="radioGroup-1" />
+
+                                        <div class="bullets-of-key-value-for-user-container">
+                                            <div class="bullets-of-key2">
+                                                One free carry-on and personal item
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feature-list-bullet3">
+                                        <img class="point-heavy-icon"
+                                             alt=""
+                                             src="./public/24--point-heavy-3.svg" />
+
+                                        <div class="bullets-of-key3">
+                                            Bullets of key value for user
+                                        </div>
+                                    </div>
+                                    <div class="feature-list-bullet4">
+                                        <img class="point-heavy-icon1"
+                                             alt=""
+                                             src="./public/24--point-heavy-4.svg" />
+
+                                        <div class="bullets-of-key4">
+                                            Bullets of key value for user
+                                        </div>
+                                    </div>
+                                    <div class="feature-list-bullet5">
+                                        <img class="point-heavy-icon2"
+                                             alt=""
+                                             src="./public/24--point-heavy-5.svg" />
+
+                                        <div class="bullets-of-key5">
+                                            Bullets of key value for user
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-list-business">
+                            <img class="business-seats-icon"
+                                 alt=""
+                                 src="./img/Business Seats.png" />
+
+                            <div class="feature-list1">
+                                <div class="header-and-badge1">
+                                    <div class="header1">Business class</div>
+                                    <div class="badge-selected1">
+                                        <b class="label1">Selected</b>
+                                    </div>
+                                </div>
+                                <div class="description1">
+                                    Rest and recharge during your flight with extended leg room,
+                                    personalized service, and a multi-course meal service
+                                </div>
+                                <div class="divider-thick1"></div>
+                                <div class="feature-list-bullet6">
+                                    <img class="check-heavy-icon"
+                                         alt=""
+                                         src="./public/24--check-heavy.svg" />
+
+                                    <div class="bullets-of-key6">Extended leg room</div>
+                                </div>
+                                <div class="feature-list-bullet7">
+                                    <img class="check-heavy-icon1"
+                                         alt=""
+                                         src="./public/24--check-heavy-1.svg" />
+
+                                    <div class="bullets-of-key7">
+                                        First two checked bags free
+                                    </div>
+                                </div>
+                                <div class="feature-list-bullet8">
+                                    <img class="check-heavy-icon2"
+                                         alt=""
+                                         src="./public/24--check-heavy-2.svg" />
+
+                                    <div class="bullets-of-key8">Priority boarding</div>
+                                </div>
+                                <div class="feature-list-bullet9">
+                                    <img class="check-heavy-icon3"
+                                         alt=""
+                                         src="./public/24--check-heavy-3.svg" />
+
+                                    <div class="bullets-of-key9">Personalized service</div>
+                                </div>
+                                <div class="feature-list-bullet10">
+                                    <img class="check-heavy-icon4"
+                                         alt=""
+                                         src="./public/24--check-heavy-4.svg" />
+
+                                    <div class="bullets-of-key10">
+                                        Enhanced food and drink service
+                                    </div>
+                                </div>
+                                <div class="feature-list-bullet11">
+                                    <input class="check-heavy" type="checkbox" />
+
+                                    <div class="bullets-of-key11">
+                                        Seats that recline 40% more than economy
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation-footer">
+                        <div class="seat-selection-divider">
+                            <div class="divider2"></div>
+                        </div>
+                        <div class="content1">
+                            <div class="user-selections">
+                                <div class="passenger-data">
+                                    <div class="label2">Passenger 1</div>
+                                    <div class="name" id="passenger">
+                                        @ViewBag.FullName
+                                    </div>
+                                </div>
+                                <div class="passenger-data1">
+                                    <div class="label3">Seat number</div>
+                                    <div id="seatnumber">--</div>
+                                </div>
+                            </div>
+                            <div class="button-row">
+                                <button class="button">
+                                    <div class="label4">Save and close</div>
+                                </button>
+                                <button class="button1">
+                                    <div class="label5">Next flight</div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="~/js/checkSeat.js"></script>
+@* <script src="~/js/bookedSeat.js"></script> *@
+
+</html>

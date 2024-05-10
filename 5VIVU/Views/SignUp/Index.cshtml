@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @{
+        ViewData["Title"] = "Register";
+        Layout = null;
+    }
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="~/css/signup.css" asp-append-version="true" />
+    <script src="~/js/checkInput.js"></script>
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/432772404_1097981234794479_3876536060052007525_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGOaaKd8QqjHU63kWuXqj5OH9yC82a3Aowf3ILzZrcCjO9F905aszqK0t977H0W7q3HBrw6ucVpH_n934grBZ0-&_nc_ohc=n_lLUja3oKAAX_0PR4h&_nc_ht=scontent.fhan2-4.fna&oh=03_AdQoN8Q3PJK7thA7zmuxbnh48jch_m24Z0pR4HVzTUnRUw&oe=662A12DA">
+            </div>
+            <div class="back">
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    @if (ViewBag.SuccessMessage1 != null)
+                    {
+                        <br>
+                        <div class="alert alert-success">@ViewBag.SuccessMessage1</div>
+                    }
+                    <form action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" placeholder="Enter your email" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Enter your password" required>
+                            </div>
+                            <div class="text"><a href="#">Forgot password?</a></div>
+                            <div class="button input-box">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-form" id="signup-form">
+                    <div class="title">Signup</div>
+                    <!-- Hiển thị thông báo lỗi -->
+                    <br />
+                    <div id="error_message1" class="text-danger"></div>
+                    <div id="error_message2" class="text-danger"></div>
+                    <div id="error_message3" class="text-danger"></div>
+                    <div id="error_message4" class="text-danger"></div>
+                    <div id="error_message5" class="text-danger"></div>
+                    <div id="error_count" style="color:white;"></div>
+                    <form action="/SignUp/SignUp" method="post">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" name="name" id="name" placeholder="Enter your name" onkeyup="checkInput();" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" name="email" id="email" placeholder="Enter your email" onkeyup="checkInput();" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-birthday-cake"></i>
+                                <input type="date" id="birthday" name="birthday" placeholder="Ngày tháng năm sinh" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="pass" id="pass" placeholder="Enter your password" required onkeyup="checkInput();" />
+                                <span class="toggle-password" onclick="togglePasswordVisibility('pass')">
+                                    <i class="fas fa-eye" id="pass-toggle"></i>
+                                </span>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="confirmpass" id="confirmpass" placeholder="Enter your password again" onkeyup="checkInput();" required />
+                                <span class="toggle-password" onclick="togglePasswordVisibility('confirmpass')">
+                                    <i class="fas fa-eye" id="confirmpass-toggle"></i>
+                                </span>
+                            </div>
+
+                            <!-- Button Submit -->
+                            <div class="button input-box" id="btnSubmit">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/checkInput.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#btnSubmit").on('click', function (e) {
+                if ($("#error_count").text().length > 0) {
+                    e.preventDefault();
+
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnSubmit").on('click', function (e) {
+                for (var i = 1; i <= 5; i++) {
+                    if ($("#error_message" + i).text().length > 0) {
+                        e.preventDefault();
+                        break; // No need to continue checking once we find an error
+                    }
+                }
+            });
+        });
+    </script>
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <script>
+            $(document).ready(function () {
+                alert('Đăng ký thành công! Vui lòng đăng nhập');
+            });
+        </script>
+    }
+    @if (ViewBag.Exists == false)
+    {
+        <script>
+            $(document).ready(function () {
+                alert('Email đã tồn tại! Vui lòng sử dụng email khác');
+            });
+        </script>
+    }
+
+</body>
+</html>
